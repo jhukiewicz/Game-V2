@@ -20,13 +20,13 @@ public class PlayerTest {
     @org.junit.Test
     public void putArmour_notNull(){
         Armour armour = new Chest("Leather Chest",15);
-        assertTrue(player.putArmour(armour));
+        assertTrue(player.useItem(armour));
     }
 
     @org.junit.Test
     public void putArmour_null(){
         Armour armour = null;
-        assertFalse(player.putArmour(armour));
+        assertFalse(player.useItem(armour));
     }
 
     @org.junit.Test
@@ -37,7 +37,7 @@ public class PlayerTest {
 
     @org.junit.Test
     public void receiveDamage_withDefence() {
-        player.putArmour(new Chest("Chest armour",15));
+        player.useItem(new Chest("Chest armour",15));
         player.receiveDamage(50);
         assertEquals(57.5,player.getHp(),0);
     }
@@ -64,8 +64,8 @@ public class PlayerTest {
         Armour armour = new Chest("Chest armour",15);
         Armour armour1 = new Legs("Legs armour", 20);
 
-        player.putArmour(armour);
-        player.putArmour(armour1);
+        player.useItem(armour);
+        player.useItem(armour1);
 
         assertEquals(35,player.getBonusDefense(),0);
     }

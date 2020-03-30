@@ -1,6 +1,7 @@
 package Characters;
 
 import Items.Armour.Armour;
+import Items.Item;
 import Items.PlayerInventory.Backpack;
 import Items.PlayerInventory.Inventory;
 
@@ -18,13 +19,8 @@ public class Player extends Character {
     }
 
 
-    public boolean putArmour(Armour armour) {
-        if (armour == null) {
-            System.out.println("armour = nu..ll");
-            return false;
-        }
-
-        armour.put(this);
+    public boolean useItem(Item item) {
+        item.use(this);
         updateBonusDefense();
         return true;
     }

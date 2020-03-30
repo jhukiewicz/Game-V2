@@ -12,6 +12,13 @@ public class Backpack {
         backpack = new ArrayList<>();
     }
 
+
+
+
+
+
+
+
     public boolean putInBackpack(Item item){
         if (item==null){
             return false;

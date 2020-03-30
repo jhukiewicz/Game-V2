@@ -9,7 +9,7 @@ public class Legs extends Armour {
     }
 
     @Override
-    public boolean put(Player player) {
+    public boolean use(Player player) {
         player.getInventory().setLegsArmour(this);
         player.getInventory().getArmours().set(2,this);
         return true;

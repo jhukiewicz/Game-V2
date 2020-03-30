@@ -1,11 +1,15 @@
 package Items;
 
+import Characters.Player;
+
 public abstract class Item {
     private String name;
 
     public Item(String name) {
         this.name = name;
     }
+
+    public abstract boolean use(Player player);
 
     public String getName() {
         return name;

@@ -20,8 +20,8 @@ public class Main {
         Armour armour = new Head("Leather head",15);
         Armour armour1 = new Chest("Chain chest armour", 20);
 
-        player.putArmour(armour);
-        player.putArmour(armour1);
+        player.useItem(armour);
+        player.useItem(armour1);
 
         System.out.println(player.getInventory().getHeadArmour()+" "+ player.getInventory().getChestArmour());
         System.out.println(player.getInventory().getArmours());

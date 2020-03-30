@@ -9,7 +9,7 @@ public class Head extends Armour {
     }
 
     @Override
-    public boolean put(Player player) {
+    public boolean use(Player player) {
         player.getInventory().setHeadArmour(this);
         player.getInventory().getArmours().set(0,this);
         return true;
