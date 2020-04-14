@@ -5,7 +5,7 @@ import Characters.Player;
 public class Head extends Armour {
 
     public Head(String name, double bonusDef) {
-        super(name, bonusDef);
+        super(name, bonusDef, ArmourType.HEAD);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package Items;
 
-public class Potion extends Item {
+public abstract class Potion extends Item {
     private int restoredValue;
 
     public Potion(String name, int restoredValue) {

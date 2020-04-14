@@ -13,12 +13,6 @@ public class Backpack {
     }
 
 
-
-
-
-
-
-
     public boolean putInBackpack(Item item){
         if (item==null){
             return false;
@@ -27,6 +21,11 @@ public class Backpack {
         return true;
     }
 
-    
+    public List<Item> getBackpack() {
+        return backpack;
+    }
 
+    public void setBackpack(List<Item> backpack) {
+        this.backpack = backpack;
+    }
 }

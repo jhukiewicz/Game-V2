@@ -5,7 +5,7 @@ import Characters.Player;
 public class Legs extends Armour {
 
     public Legs(String name, double bonusDef) {
-        super(name, bonusDef);
+        super(name, bonusDef, ArmourType.LEGS);
     }
 
     @Override

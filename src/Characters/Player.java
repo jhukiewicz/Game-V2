@@ -5,6 +5,8 @@ import Items.Item;
 import Items.PlayerInventory.Backpack;
 import Items.PlayerInventory.Inventory;
 
+import java.util.Scanner;
+
 public class Player extends Character {
     private double bonusAttack;
     private double bonusDefense;
@@ -47,6 +49,16 @@ public class Player extends Character {
         setHp(getHp() - receivedDamage);
         return receivedDamage;
     }
+
+
+    public static Player createPlayer(){
+        System.out.println("Enter your name: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        return new Player(name,100,15);
+    }
+
+
 
     public Backpack getBackpack() {
         return backpack;

@@ -4,8 +4,9 @@ import Characters.Player;
 
 public class Chest extends Armour {
 
+
     public Chest(String name, double bonusDef) {
-        super(name, bonusDef);
+        super(name, bonusDef, ArmourType.CHEST);
     }
 
     @Override
