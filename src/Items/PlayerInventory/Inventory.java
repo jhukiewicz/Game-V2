@@ -6,7 +6,6 @@ import Items.Armour.Head;
 import Items.Armour.Legs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Inventory {
@@ -23,22 +22,6 @@ public class Inventory {
 
     public Inventory() {
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public Chest getChestArmour() {

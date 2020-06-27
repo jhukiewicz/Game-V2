@@ -16,6 +16,7 @@ public abstract class Character {
     public abstract double receiveDamage(double value);
     public abstract double attack();
 
+
     public boolean isAlive() {
         if (hp <= 0) {
             isAlive = false;
@@ -50,5 +51,7 @@ public abstract class Character {
     public void setAttackValue(double attackValue) {
         this.attackValue = attackValue;
     }
+
+
 
 }

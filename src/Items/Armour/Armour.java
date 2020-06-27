@@ -16,4 +16,7 @@ public abstract class Armour extends Item {
     public double getBonusDef() {
         return bonusDef;
     }
+
+
+
 }

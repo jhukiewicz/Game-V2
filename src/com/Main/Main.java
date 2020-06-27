@@ -1,44 +1,62 @@
 package com.Main;
 
+import Characters.Enemies.Dragon;
+import Characters.Enemies.Monster;
+import Characters.Enemies.Slime;
 import Characters.Player;
 import Items.Armour.Armour;
 import Items.Armour.Chest;
 import Items.Armour.Head;
+import Items.Armour.Legs;
+import Items.Item;
 import Items.PlayerInventory.Backpack;
+import Items.Potions.Potion;
+import Items.Potions.PotionTypes;
+import Items.Potions.PotionsSack;
 import Maps.Location;
 import Maps.Locations;
+
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        Player player = new Player("A",100,40);
+
+        Scanner scanner = new Scanner(System.in);
+
+//        Game.start();
+        Player player = new Player("Murt", 100, 50);
+        Monster dragon = new Dragon();
+        Potion potion1 = new Potion(PotionTypes.SMALL);
+        Potion potion2 = new Potion(PotionTypes.MEDIUM);
 //
-//        player.setBonusDefense(10);
-//        player.receiveDamage(50);
 //
 //        System.out.println(player.getHp());
+//        player.getPotionsSack().addPotion(potion1);
+//        player.getPotionsSack().addPotion(potion2);
 //
-//        Armour armour = new Head("Leather head",15);
-//        Armour armour1 = new Chest("Chain chest armour", 20);
 //
-//        player.useItem(armour);
-//        player.useItem(armour1);
-//
-//        System.out.println(player.getInventory().getHeadArmour()+" "+ player.getInventory().getChestArmour());
-//        System.out.println(player.getInventory().getArmours());
-//
-//        Backpack backpack = new Backpack();
-//       backpack.putInBackpack(armour);
-//
-//        Locations locations = new Locations();
+        player.getBackpack().putInBackpack(new Chest("DUZY zbrojka",15));
+        player.getBackpack().putInBackpack(new Chest("mala zbroja",15));
+        player.getBackpack().putInBackpack(new Head("duzy kask",15));
+        player.getBackpack().putInBackpack(new Legs("male nogawki",15));
 
-        Game.start();
+//        Game.browseItems(player);
+
+//        Combat.fight(player,dragon);
 
 
-	// write your code here
-        //changes 222
-        //login
+//        Combat.usePotion(player,scanner);
+
+
+
+
+//        Combat.fight(player,dragon);
+//        Game.start();
+Game.browseItems(player,scanner);
+
+
 
     }
 }

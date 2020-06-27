@@ -9,6 +9,9 @@ public abstract class Item {
         this.name = name;
     }
 
+    public Item() {
+    }
+
     public abstract boolean use(Player player);
 
     public String getName() {
@@ -17,5 +20,10 @@ public abstract class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "eee";
     }
 }

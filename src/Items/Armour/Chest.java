@@ -11,13 +11,17 @@ public class Chest extends Armour {
 
     @Override
     public boolean use(Player player) {
+        if (player.getInventory().getChestArmour()!=null){
+            player.getBackpack().putInBackpack(player.getInventory().getChestArmour());
+        }
         player.getInventory().setChestArmour(this);
         player.getInventory().getArmours().set(1,this);
+
         return true;
     }
 
     @Override
     public String toString() {
-        return super.getName();
+        return super.getName() + " bonus def: " + super.getBonusDef();
     }
 }

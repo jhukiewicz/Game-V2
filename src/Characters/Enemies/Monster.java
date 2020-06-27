@@ -10,11 +10,17 @@ public abstract class Monster extends Character {
 
     @Override
     public double receiveDamage(double value) {
-        return 0;
+        setHp(this.getHp()-value);
+
+        if (getHp()<=0){
+            setAlive(false);
+        }
+
+        return value;
     }
 
     @Override
     public double attack() {
-        return 0;
+        return getAttackValue();
     }
 }

@@ -4,6 +4,7 @@ import Items.Armour.Armour;
 import Items.Item;
 import Items.PlayerInventory.Backpack;
 import Items.PlayerInventory.Inventory;
+import Items.Potions.PotionsSack;
 
 import java.util.Scanner;
 
@@ -12,14 +13,15 @@ public class Player extends Character {
     private double bonusDefense;
     private Backpack backpack;
     private Inventory inventory;
+    private PotionsSack potionsSack;
 
 
     public Player(String name, int hp, double attackValue) {
         super(name, hp, attackValue);
         this.backpack = new Backpack();
         this.inventory = new Inventory();
+        this.potionsSack = new PotionsSack();
     }
-
 
     public boolean useItem(Item item) {
         item.use(this);
@@ -47,6 +49,11 @@ public class Player extends Character {
     public double receiveDamage(double value) {
         double receivedDamage = value - (bonusDefense / 100 * value);
         setHp(getHp() - receivedDamage);
+
+        if (getHp()<=0){
+            setAlive(false);
+        }
+
         return receivedDamage;
     }
 
@@ -56,6 +63,11 @@ public class Player extends Character {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         return new Player(name,100,15);
+    }
+
+    @Override
+    public double attack() {
+        return getAttackValue() + bonusAttack;
     }
 
 
@@ -76,12 +88,6 @@ public class Player extends Character {
         this.inventory = inventory;
     }
 
-    @Override
-    public double attack() {
-        return getAttackValue() + bonusAttack;
-    }
-
-
     public double getBonusAttack() {
         return bonusAttack;
     }
@@ -97,4 +103,14 @@ public class Player extends Character {
     public void setBonusDefense(double bonusDefense) {
         this.bonusDefense = bonusDefense;
     }
+
+    public PotionsSack getPotionsSack() {
+        return potionsSack;
+    }
+
+    public void setPotionsSack(PotionsSack potionsSack) {
+        this.potionsSack = potionsSack;
+    }
+
+
 }

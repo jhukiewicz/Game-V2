@@ -10,6 +10,9 @@ public class Legs extends Armour {
 
     @Override
     public boolean use(Player player) {
+        if (player.getInventory().getLegsArmour()!=null){
+            player.getBackpack().putInBackpack(player.getInventory().getLegsArmour());
+        }
         player.getInventory().setLegsArmour(this);
         player.getInventory().getArmours().set(2,this);
         return true;

@@ -1,5 +1,8 @@
 package Maps;
 
+import Characters.Enemies.Monster;
+import Items.Item;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,13 +10,13 @@ public class Location {
     private final int ID;
     private final String description;
     private final Map<Directions, Integer> exits;
-    private boolean isMonster;
+    private Monster Monster;
+    private Item item;
 
     public Location(int ID, String description) {
         this.ID = ID;
         this.description = description;
         this.exits = new HashMap<>();
-        this.isMonster = false;
     }
 
 
@@ -31,5 +34,21 @@ public class Location {
 
     public Map<Directions, Integer> getExits() {
         return exits;
+    }
+
+    public Monster getMonster() {
+        return Monster;
+    }
+
+    public void setMonster(Monster monster) {
+        Monster = monster;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

@@ -10,6 +10,9 @@ public class Head extends Armour {
 
     @Override
     public boolean use(Player player) {
+        if (player.getInventory().getHeadArmour()!=null){
+            player.getBackpack().putInBackpack(player.getInventory().getHeadArmour());
+        }
         player.getInventory().setHeadArmour(this);
         player.getInventory().getArmours().set(0,this);
         return true;
