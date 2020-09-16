@@ -45,12 +45,7 @@ public class Combat {
         }
 
 
-        if (!player.isAlive()) {
-            return false;
-        } else {
-            return true;
-
-        }
+        return player.isAlive();
     }
 
     public static double attack(Character character1, Character character2) {
