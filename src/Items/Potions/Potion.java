@@ -9,31 +9,33 @@ public class Potion extends Item {
 
     public Potion(PotionTypes type) {
         this.type = type;
-        switch (type){
+        switch (type) {
             case SMALL:
                 restoredValue = 25;
+                super.setName("Small Potion");
                 break;
             case MEDIUM:
                 restoredValue = 50;
+                super.setName("Medium Potion");
                 break;
             case LARGE:
                 restoredValue = 100;
+                super.setName("Large Potion");
                 break;
         }
     }
 
     @Override
     public boolean use(Player player) {
-        player.setHp(player.getHp()+this.restoredValue);
-        System.out.println("dodaje " + restoredValue +"hp");
+        player.setHp(player.getHp() + this.restoredValue);
+        System.out.println("Restored " + restoredValue + " hp!");
         return true;
     }
 
-    public PotionTypes getType() {
-        return type;
-    }
 
     public int getRestoredValue() {
         return restoredValue;
     }
+
+
 }

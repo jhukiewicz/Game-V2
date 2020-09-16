@@ -1,7 +1,6 @@
 package Items.PlayerInventory;
 
 import Items.Item;
-import Items.Potions.Potion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +15,9 @@ public class Backpack {
     }
 
     public void browseBackpack(){
-        int nr = 0;
+        int nr = 1;
         for (Item item : backpack) {
-            System.out.println(Integer.toString(nr) + item);
+            System.out.println(nr +" "+ item);
             nr++;
         }
     }
@@ -37,7 +36,4 @@ public class Backpack {
         return backpack;
     }
 
-    public void setBackpack(List<Item> backpack) {
-        this.backpack = backpack;
-    }
 }

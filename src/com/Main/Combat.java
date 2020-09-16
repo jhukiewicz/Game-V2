@@ -38,7 +38,7 @@ public class Combat {
                     break;
                 case 2:
                     if (usePotion(player, scanner)) {
-                        System.out.println(monster.getName() + "attacks and deals " + attack(monster, player) + " damage!");
+                        System.out.println(monster.getName() + " attacks and deals " + attack(monster, player) + " damage!");
                         break;
                     }
             }
@@ -55,7 +55,7 @@ public class Combat {
 
     public static double attack(Character character1, Character character2) {
 
-        return character2.receiveDamage(character1.attack());
+        return Math.round(character2.receiveDamage(character1.attack()));
     }
 
     public static boolean usePotion(Player player, Scanner scanner) {
@@ -82,15 +82,13 @@ public class Combat {
                 scanner.next();
             }
 
-//            scanner.nextLine();
-
             if (decision >= 0 && decision < 3) {
                 try {
                     player.useItem(player.getPotionsSack().getPotions().get(decision).get(0));
                     player.getPotionsSack().getPotions().get(decision).remove(0);
                     return true;
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("You don't have that kind of potion!");
+                    System.out.println("You don't have this potion!");
                 }
             } else if (decision == 3) {
                 return false;

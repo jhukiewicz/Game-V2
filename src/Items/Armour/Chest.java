@@ -1,6 +1,7 @@
 package Items.Armour;
 
 import Characters.Player;
+import Items.Item;
 
 public class Chest extends Armour {
 
@@ -12,16 +13,16 @@ public class Chest extends Armour {
     @Override
     public boolean use(Player player) {
         if (player.getInventory().getChestArmour()!=null){
-            player.getBackpack().putInBackpack(player.getInventory().getChestArmour());
+            Item currentlyEquipped = player.getInventory().getChestArmour();
+            if (!player.getBackpack().getBackpack().contains(currentlyEquipped)) {
+                player.getBackpack().putInBackpack(player.getInventory().getChestArmour());
+            }
         }
         player.getInventory().setChestArmour(this);
-        player.getInventory().getArmours().set(1,this);
-
+        player.getInventory().getArmours().set(0,this);
+        player.getBackpack().getBackpack().remove(this);
         return true;
     }
 
-    @Override
-    public String toString() {
-        return super.getName() + " bonus def: " + super.getBonusDef();
-    }
+
 }

@@ -4,6 +4,7 @@ import Items.Armour.Armour;
 import Items.Armour.Chest;
 import Items.Armour.Head;
 import Items.Armour.Legs;
+import Items.Weapon.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Inventory {
     private Chest chestArmour;
     private Head headArmour;
     private Legs legsArmour;
+    private Weapon weapon;
 
     private List<Armour> armours = new ArrayList<>() {{
         add(headArmour);
@@ -20,9 +22,18 @@ public class Inventory {
         add(legsArmour);
     }};
 
+
     public Inventory() {
     }
 
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
 
     public Chest getChestArmour() {
         if (chestArmour == null) {
@@ -61,8 +72,5 @@ public class Inventory {
         return armours;
     }
 
-    public void setArmours(List<Armour> armours) {
-        this.armours = armours;
-    }
 
 }

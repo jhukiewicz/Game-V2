@@ -1,6 +1,5 @@
 package Items.Armour;
 
-import Characters.Player;
 import Items.Item;
 
 public abstract class Armour extends Item {
@@ -18,5 +17,9 @@ public abstract class Armour extends Item {
     }
 
 
+    @Override
+    public String toString() {
+        return super.getName() + " bonus def: " + getBonusDef();
 
+    }
 }

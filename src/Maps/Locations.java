@@ -69,7 +69,4 @@ public class Locations {
         return locations;
     }
 
-    public void setLocations(Map<Integer, Location> locations) {
-        Locations.locations = locations;
-    }
 }

@@ -44,7 +44,4 @@ public class PotionsSack {
         return potions;
     }
 
-    public void setPotions(Map<Integer, List<Potion>> potions) {
-        this.potions = potions;
-    }
 }

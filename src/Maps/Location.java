@@ -24,9 +24,6 @@ public class Location {
         exits.put(direction,location);
     }
 
-    public int getID() {
-        return ID;
-    }
 
     public String getDescription() {
         return description;

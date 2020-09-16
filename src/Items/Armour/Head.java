@@ -1,6 +1,7 @@
 package Items.Armour;
 
 import Characters.Player;
+import Items.Item;
 
 public class Head extends Armour {
 
@@ -11,17 +12,18 @@ public class Head extends Armour {
     @Override
     public boolean use(Player player) {
         if (player.getInventory().getHeadArmour()!=null){
-            player.getBackpack().putInBackpack(player.getInventory().getHeadArmour());
+            Item currentlyEquipped = player.getInventory().getHeadArmour();
+            if (!player.getBackpack().getBackpack().contains(currentlyEquipped)) {
+                player.getBackpack().putInBackpack(player.getInventory().getHeadArmour());
+            }
         }
         player.getInventory().setHeadArmour(this);
-        player.getInventory().getArmours().set(0,this);
+        player.getInventory().getArmours().set(1,this);
+        player.getBackpack().getBackpack().remove(this);
         return true;
     }
 
 
 
-    @Override
-    public String toString() {
-        return super.getName();
-    }
+
 }
