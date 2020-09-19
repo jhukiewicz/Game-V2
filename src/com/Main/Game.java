@@ -6,6 +6,7 @@ import Items.Armour.Chest;
 import Items.Armour.Head;
 import Items.Armour.Legs;
 import Items.Item;
+import Items.PlayerInventory.BrowseInventory;
 import Items.Potions.Potion;
 import Items.Potions.PotionTypes;
 import Items.Weapon.Weapon;
@@ -22,7 +23,6 @@ public class Game {
     static void start() {
         System.out.println("Welcome in adventure game v.2!\n");
         Player player = Player.createPlayer();
-        Monster monster = null;
         Locations locations = new Locations();
 
         Scanner scanner = new Scanner(System.in);
@@ -52,7 +52,7 @@ public class Game {
                 if (exits.containsKey(direction)) {
                     loc = exits.get(direction);
                 } else if (Integer.parseInt(decision) == 1) {
-                    browseItems(player, scanner);
+                    BrowseInventory.browseItems(player, scanner);
                 } else if (Integer.parseInt(decision) == 2) {
                     Combat.usePotion(player, scanner);
                 } else {
@@ -90,66 +90,5 @@ public class Game {
             }
         }
     }
-
-
-
-    public static boolean browseItems(Player player, Scanner scanner) {
-        System.out.println("Equipped items: ");
-        for (Item equipped : player.getInventory().getArmours()) {
-            if (equipped != null) {
-                System.out.println(equipped);
-            }
-        }
-        if (player.getInventory().getWeapon() != null) {
-            System.out.println(player.getInventory().getWeapon());
-        }
-
-
-        System.out.println("Your backpack: ");
-        player.getBackpack().browseBackpack();
-
-
-        while (true) {
-            System.out.println("\nBonus def: " + player.getBonusDefense());
-            System.out.println("Bonus attack: " + player.getBonusAttack());
-
-            System.out.println("Choose option: " +
-                    "\n1.Equip item"
-                    + "\n2.Quit");
-
-
-            int decision = 0;
-            try {
-                decision = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong key!");
-                scanner.next();
-            }
-
-            switch (decision) {
-                case 1:
-                    if (!player.getBackpack().getBackpack().isEmpty()) {
-                        System.out.println("Chose item: ");
-                        player.getBackpack().browseBackpack();
-                        try {
-                            int selectedItem = scanner.nextInt();
-                            player.useItem(player.getBackpack().getBackpack().get(selectedItem - 1));
-                        } catch (InputMismatchException | IndexOutOfBoundsException d) {
-                            System.out.println("Wrong key!");
-                        }
-                    } else {
-                        System.out.println("Your backpack is empty!");
-                        break;
-                    }
-
-                case 2:
-                    return false;
-            }
-
-        }
-
-
-    }
-
 
 }
