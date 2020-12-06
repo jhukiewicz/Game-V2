@@ -1,2 +1,2 @@
 # Game-V2
-New version of my game, more complex but without GUI
+New version of my adventure game, more complex but without GUI
